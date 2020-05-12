@@ -16,4 +16,4 @@ import React from "react";
     )
 }
 
-export default SearchForm;
+export default SearchForm

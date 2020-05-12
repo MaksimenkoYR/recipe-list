@@ -1,13 +1,16 @@
 import React,{useEffect, useState} from 'react'
-import Recipe from "../RecipeList/Recipe"
 import './App.css'
-import SearchForm from '../SearchForm/SearchForm';
-import RecipesList from '../RecipeList/RecipesList';
+import SearchForm from '../SearchForm/SearchForm'
+import RecipesList from '../RecipeList/RecipesList'
+import RecipePage from '../RecipePage/RecipePage'
+
+import {Route, Switch } from 'react-router-dom'
 
 const App = () => {
     const APP_ID = "e281c960";
-    const APP_KEY = "7b3583f2c3e95a6d9680b94ce3a03cba";	
+    const APP_KEY = "7b3583f2c3e95a6d9680b94ce3a03cba";
     
+    const [recipeLink, setRecipeLink] = useState("test");
     const [recipes, setRecipes] = useState([]);
     const [searchQuery, setSearchQuery] = useState("chicken");
 
@@ -28,13 +31,23 @@ const App = () => {
 
 
 
-// functions working with searchForm
-    //update recipes lisr when we submit search form
+//Search
+    //update recipes list when we submit search form
     const search = e => {
         e.preventDefault();
         getRecipes();
     }
-    
+//Routing
+    //set path in RecipePage when we chose the recipe
+    const setPath = (path) => {
+        console.log(path);
+        setRecipeLink(path);
+        console.log(path);
+        console.log(recipeLink);
+
+    }
+
+
     return(
         <div className="app">
             <header className="app-header">
@@ -45,7 +58,14 @@ const App = () => {
                 />
             </header>
             <main>
-                <RecipesList recipes={recipes}/>
+            <Switch>
+                <Route path={recipeLink}>
+                    <RecipePage/>
+                </Route>
+                <Route path="/">
+                    <RecipesList recipes={recipes} setPath={setPath}/>
+                </Route>
+            </Switch>
             </main>
         </div>
     )
