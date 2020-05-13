@@ -8,7 +8,6 @@ const Recipe = ({recipe, setPath}) => {
     // use this ration to find calories and nutients in 100g 
     const ratio = recipe.totalWeight/100 ;
     
-    console.log(ratio);
     const calories = Math.round(recipe.calories / ratio);
     const recipePath = `/${recipe.label.replace(/ /g, "_")}`;
     

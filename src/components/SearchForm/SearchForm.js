@@ -1,9 +1,8 @@
 import React from "react";
 
-    const SearchForm = ({search, setSearchQuery}) => {
-
-    return(
-        <form onSubmit={search} className="search-form">
+    const SearchForm = ({doSearch, setSearchQuery}) => {
+        return(
+        <form  onSubmit={doSearch} className="search-form">
             <input 
                 className="search-form__input" 
                 type="text" 
