@@ -16,23 +16,25 @@ const Recipe = ({recipe, setPath}) => {
     const nutrientsShort = recipe.digest.slice(0,3); 
 
     return(
-        <li className="recipe-item">
+        <li className="recipe-list__item recipe-item">
             <Link onClick={()=>setPath(recipePath)} to={recipePath}>
                 <img src={recipe.image} alt=""/>
-                <h2>{recipe.label}</h2>
-                <h3>In 100g of product:</h3>
-                <p>{calories} calories</p>
-                <ul className="recipe-item_features">
-                    {nutrientsShort.map(item => (
-                        <li key={recipe.label + item.label}>{item.label}:{Math.round(item.total/ratio*4)}g </li>
-                    ))}
-                </ul>
-                <h3>Tags:</h3>
-                <ul className="recipe-item__features">
-                    {recipeFeatures.map(item => (
-                        <li key={recipe.label + item}>{item}</li>
-                    ))}
-                </ul>
+                <div className="recipe-item__information">
+                    <h2 className="recipe-item__title">{recipe.label}</h2>
+                    <h3>In 100g of product:</h3>
+                    <ul className="recipe-item__nutrition">
+                        <li>Calories: {calories}</li>
+                        {nutrientsShort.map(item => (
+                            <li key={recipe.label + item.label}>{item.label}: {Math.round(item.total/ratio*4)}g </li>
+                        ))}
+                    </ul>
+                    <h3>Tags:</h3>
+                    <ul className="recipe-item__tags-list">
+                        {recipeFeatures.map(item => (
+                            <li key={recipe.label + item}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
             </Link>
         </li>
     )
