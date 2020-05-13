@@ -3,14 +3,13 @@ import './App.css'
 import SearchForm from '../SearchForm/SearchForm'
 import RecipesList from '../RecipeList/RecipesList'
 import RecipePage from '../RecipePage/RecipePage'
+import {Route, Switch, useLocation } from 'react-router-dom'
 
-import {Route, Switch } from 'react-router-dom'
 
 const App = () => {
     const APP_ID = "e281c960";
     const APP_KEY = "7b3583f2c3e95a6d9680b94ce3a03cba";
-    
-    const [recipeLink, setRecipeLink] = useState("test");
+    const [recipeLink, setRecipeLink] = useState(useLocation().pathname);
     const [recipes, setRecipes] = useState([]);
     const [searchQuery, setSearchQuery] = useState("chicken");
 
@@ -60,7 +59,7 @@ const App = () => {
             <main>
             <Switch>
                 <Route path={recipeLink}>
-                    <RecipePage/>
+                    <RecipePage recipe={recipeLink}/>
                 </Route>
                 <Route path="/">
                     <RecipesList recipes={recipes} setPath={setPath}/>

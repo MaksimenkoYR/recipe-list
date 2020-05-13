@@ -1,9 +1,10 @@
 import React from "react"
 
-const RecipePage = () => {
+const RecipePage = ({recipe}) => {
+    console.log(recipe);
     return(
-        <h1>hello</h1> 
-    )
+        <h1>{recipe}</h1> 
+    )   
 }
 
 export default RecipePage

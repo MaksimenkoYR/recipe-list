@@ -25,7 +25,7 @@ const Recipe = ({recipe, setPath}) => {
                 <p>{calories} calories</p>
                 <ul className="recipe-item_features">
                     {nutrientsShort.map(item => (
-                        <li key={recipe.label + item.label}>{item.label}:{Math.round(item.total/ratio)}g </li>
+                        <li key={recipe.label + item.label}>{item.label}:{Math.round(item.total/ratio*4)}g </li>
                     ))}
                 </ul>
                 <h3>Tags:</h3>
