@@ -5,7 +5,7 @@ const RecipesList = ({recipes, setPath}) => {
     return(
         <ul className="recipe-list">
             {recipes.map(item => (
-                <Recipe recipe={item.recipe} setPath={setPath}/>
+                <Recipe key={item.recipe.label}recipe={item.recipe} setPath={setPath}/>
             ))}        
         </ul>
 )}
