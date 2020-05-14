@@ -1,6 +1,6 @@
 import React from "react"
 import SearchForm from "../SearchForm/SearchForm"
-import "./Header.css"
+import "./Header.scss"
 
 const Header = (props) => {
     

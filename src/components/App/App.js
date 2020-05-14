@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import './App.css'
+import "./App.scss"
 import RecipesList from '../RecipeList/RecipesList'
 import RecipePage from '../RecipePage/RecipePage'
 import {Route, Switch, useLocation } from 'react-router-dom'

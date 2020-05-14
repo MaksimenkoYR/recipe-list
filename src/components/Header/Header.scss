@@ -1,0 +1,60 @@
+@import "../../style-var";
+
+.app-header {
+    display: flex;
+    align-items: strech;
+
+    height: 5vh;
+
+    padding: 0 3%;
+    background-color: $main-color;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+}
+
+.search-form{
+    position: relative;
+
+    margin: 2% 0;
+    
+    width: 100%;
+    
+    border-radius: 10px;
+    background-color: #fff;
+    
+    &:before{
+        position: absolute;
+        
+        left: 1%;
+
+        width: 10%;
+        height: 100%;
+    
+        content: "";
+
+        background: url(../../icons/search-icon.svg) no-repeat;
+        background-size: auto 100%;
+        
+        transform: scale(0.7);
+
+       
+    }
+}
+.search-form__input {
+    display: block;
+
+    width: 90%;
+    height: 100%;
+
+    margin-left: auto;
+
+    border: none;
+    border-radius: 10px;
+
+}
+
+.search-form__button {
+    display: none;
+}
