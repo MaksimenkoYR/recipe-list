@@ -12,12 +12,19 @@ const Recipe = ({recipe, setPath}) => {
     const recipePath = `/${recipe.label.replace(/ /g, "_")}`;
     
     
+    
     const recipeFeatures = recipe.dietLabels.concat(recipe.healthLabels);
     const nutrientsShort = recipe.digest.slice(0,3); 
 
     return(
         <li className="recipe-list__item recipe-item">
-            <Link onClick={()=>setPath(recipePath)} to={recipePath}>
+            <Link onClick={()=>{
+                setPath(recipePath);
+
+                sessionStorage.clear();
+                sessionStorage.setItem("recipe", JSON.stringify(recipe) );
+                    }} 
+                to={recipePath}>
                 <img src={recipe.image} alt=""/>
                 <div className="recipe-item__information">
                     <h2 className="recipe-item__title">{recipe.label}</h2>

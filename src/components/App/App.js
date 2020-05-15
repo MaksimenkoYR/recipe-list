@@ -15,6 +15,7 @@ const App = () => {
 
     useEffect(() => {
         getRecipes();
+
     }, []);
 
     const getRecipes = async () => {
@@ -58,7 +59,7 @@ const App = () => {
                     <RecipesList recipes={recipes} setPath={setPath}/>
                 </Route>
                 <Route path={recipeLink}>
-                    <RecipePage recipe={recipeLink}/>
+                    <RecipePage recipe={JSON.parse(sessionStorage.recipe)}/>
                 </Route>
             </Switch>
             </main>
