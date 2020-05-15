@@ -45,7 +45,7 @@ const App = () => {
         setRecipeLink(path);
     }
 
-
+    
     return(
         <div className="app">
             <Header
@@ -59,7 +59,7 @@ const App = () => {
                     <RecipesList recipes={recipes} setPath={setPath}/>
                 </Route>
                 <Route path={recipeLink}>
-                    <RecipePage recipe={JSON.parse(sessionStorage.recipe)}/>
+                    <RecipePage/>
                 </Route>
             </Switch>
             </main>

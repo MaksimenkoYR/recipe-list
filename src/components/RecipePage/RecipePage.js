@@ -1,6 +1,8 @@
 import React from "react"
 
-const RecipePage = ({recipe}) => {
+const RecipePage = () => {
+const recipe = JSON.parse(sessionStorage.recipe);
+    
 console.log(recipe)
     return(
         <h1>{recipe.label}</h1> 

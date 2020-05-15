@@ -2,7 +2,6 @@
 
 .app-header {
     display: flex;
-    align-items: strech;
 
     height: 5vh;
 
@@ -17,7 +16,7 @@
 .search-form{
     position: relative;
 
-    margin: 2% 0;
+    margin: 1vh 0;
     
     width: 100%;
     
@@ -57,4 +56,29 @@
 
 .search-form__button {
     display: none;
+}
+
+@media(min-width: 768px){
+    .search-form{
+        width: 30%;
+    }
+}
+
+@media( min-aspect-ratio: 1/1){
+    .app-header__container{
+        position: relative;
+    }
+    
+    .app-header{
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        width: 20vw;
+
+        
+        .search-form{
+            width: 100%;
+            height: 3vh
+        }
+    }
 }

@@ -15,7 +15,7 @@ const Recipe = ({recipe, setPath}) => {
     
     const recipeFeatures = recipe.dietLabels.concat(recipe.healthLabels);
     const nutrientsShort = recipe.digest.slice(0,3); 
-
+    
     return(
         <li className="recipe-list__item recipe-item">
             <Link onClick={()=>{
