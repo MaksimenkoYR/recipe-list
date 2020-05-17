@@ -1,4 +1,5 @@
 import React from 'react'
+import './RecipePage.scss'
 
 const RecipePage = () => {
     const recipe = JSON.parse(sessionStorage.recipe)
@@ -22,9 +23,9 @@ const RecipePage = () => {
             <ul className='recipe-summary'>
                 <li>Calories: {calories}</li>
                 <li>Portions: {recipe.yield}</li>
-                <li className='recipe-summary__reiting reiting'>
-                    <div className='reiting__like'></div>
-                    <div className='reiting__dislike'> </div>
+                <li className='recipe-summary__rating rating'>
+                    <div className='rating__like'>134</div>
+                    <div className='rating__dislike'>5</div>
                 </li>
             </ul>
             <ul className='recipe-page__tags tags'>{recipeTags}</ul>
