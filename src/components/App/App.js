@@ -4,7 +4,7 @@ import RecipesList from '../RecipeList/RecipesList'
 import RecipePage from '../RecipePage/RecipePage'
 import {Route, Switch, useLocation} from 'react-router-dom'
 import Header from '../Header/Header'
-import { AllTags } from './AllTags'
+import {allTags} from './AllTags'
 
 const App = () => {
     const APP_ID = 'e281c960'
@@ -20,7 +20,7 @@ const App = () => {
 
     const getRecipes = async () => {
         const response = await fetch(
-            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}{tags}`
         )
 
         const data = await response.json()
@@ -42,12 +42,48 @@ const App = () => {
     }
 
     //Tags
-   console.log(AllTags)
+    const tagCreateRequest = tag => `&health={tag.api_parametr}`
+    
+    const [tags, setTags] = useState([])
+    
+    const changeTags = tag => {
+        
+        const tagRequest = tagCreateRequest(tag)    
+        
+        const isTagsContain = tag => {
+            tags.includes(tagRequest)
+        }
+        
+        const switchTag = tag => {
+            const newTags = tags.filter(item => {
+                return(tag !== tagRequest)
+            })
+            setTags(newTags)
+        }
+        
+        
+        switch (tag) {
+            case !Object:
+                setTags([])
+                break
+            case isTagsContain(tag):
+                switchTag(tag)
+                break
+            default:
+                setTags(tags.push(tagRequest))
+        }
+    }
 
-    const [tags, setTags] = useState()
+    /////////////////////////////////////////////////////////////////////////
     return (
         <div className='app'>
-            <Header doSearch={doSearch} setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+            <Header
+                changeTags={changeTags}
+                allTags={allTags}
+                doSearch={doSearch}
+                setSearchQuery={setSearchQuery}
+                searchQuery={searchQuery}
+            />
             <main>
                 <Switch>
                     <Route exact path='/'>
