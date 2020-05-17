@@ -4,10 +4,12 @@ import RecipesList from '../RecipeList/RecipesList'
 import RecipePage from '../RecipePage/RecipePage'
 import {Route, Switch, useLocation} from 'react-router-dom'
 import Header from '../Header/Header'
+import { AllTags } from './AllTags'
 
 const App = () => {
     const APP_ID = 'e281c960'
     const APP_KEY = '7b3583f2c3e95a6d9680b94ce3a03cba'
+
     const [recipeLink, setRecipeLink] = useState(useLocation().pathname)
     const [recipes, setRecipes] = useState([])
     const [searchQuery, setSearchQuery] = useState('chicken')
@@ -39,6 +41,10 @@ const App = () => {
         setRecipeLink(path)
     }
 
+    //Tags
+   console.log(AllTags)
+
+    const [tags, setTags] = useState()
     return (
         <div className='app'>
             <Header doSearch={doSearch} setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
