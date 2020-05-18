@@ -20,6 +20,9 @@ const App = () => {
     }, [])
 
     const getRecipes = async () => {
+        console.log(
+            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}${tags}`
+        )
         const response = await fetch(
             `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}${tags}`
         )
