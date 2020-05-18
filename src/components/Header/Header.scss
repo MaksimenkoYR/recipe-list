@@ -3,7 +3,7 @@
 .app-header {
     display: flex;
 
-    height: 5vh;
+    min-height: 5vh;
 
     padding: 0 3%;
     background-color: $main-color;
@@ -14,19 +14,39 @@
 }
 
 .search-form{
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 1vh 0;
     
     width: 100%;
     
+}
+
+.search-form__search-input{
+    position: ralative;
+    margin: 0;
+    height: 20px;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+
+    border: none;
     border-radius: 10px;
-    background-color: #fff;
-    
+}
+
+.search-form__search-label{
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
     &:before{
         position: absolute;
         
         left: 1%;
+
 
         width: 10%;
         height: 100%;
@@ -41,21 +61,15 @@
        
     }
 }
-.search-form__input {
-    display: block;
-
-    width: 90%;
-    height: 100%;
-
-    margin-left: auto;
-
-    border: none;
-    border-radius: 10px;
-
-}
 
 .search-form__button {
-    display: none;
+    width: 30%
+}
+
+.button {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 20px;
 }
 
 @media(min-width: 768px){
@@ -65,9 +79,7 @@
 }
 
 @media( min-aspect-ratio: 1/1){
-    .app-header__container{
-        position: relative;
-    }
+    
     
     .app-header{
         position: fixed;
