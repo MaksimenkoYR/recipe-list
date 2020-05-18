@@ -4,10 +4,13 @@ import RecipesList from '../RecipeList/RecipesList'
 import RecipePage from '../RecipePage/RecipePage'
 import {Route, Switch, useLocation} from 'react-router-dom'
 import Header from '../Header/Header'
+import {allTags} from './AllTags'
 
 const App = () => {
     const APP_ID = 'e281c960'
     const APP_KEY = '7b3583f2c3e95a6d9680b94ce3a03cba'
+
+    const [tags, setTags] = useState('')
     const [recipeLink, setRecipeLink] = useState(useLocation().pathname)
     const [recipes, setRecipes] = useState([])
     const [searchQuery, setSearchQuery] = useState('chicken')
@@ -17,8 +20,11 @@ const App = () => {
     }, [])
 
     const getRecipes = async () => {
+        console.log(
+            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}${tags}`
+        )
         const response = await fetch(
-            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+            `https://api.edamam.com/search?q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}${tags}`
         )
 
         const data = await response.json()
@@ -39,9 +45,42 @@ const App = () => {
         setRecipeLink(path)
     }
 
+    ////---------------Tags--------------------------------
+
+    const changeTags = tag => {
+        //prepare tag to request
+        const tagCreateRequest = tag => `&health=${tag.api_parametr}`
+        const tagRequest = tagCreateRequest(tag)
+
+        //cheking is tag alredy in state.tags
+        const isTagsContainTag = tag => {
+            return tags.includes(tagRequest)
+        }
+
+        const switchTag = tag => {
+            const newTags = tags.replace(tagRequest, '')
+            setTags(newTags)
+        }
+
+        if (tag === 'clear') {
+            setTags('')
+        } else if (isTagsContainTag()) {
+            switchTag(tag)
+        } else {
+            setTags(tags + tagRequest)
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////
     return (
         <div className='app'>
-            <Header doSearch={doSearch} setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+            <Header
+                changeTags={changeTags}
+                allTags={allTags}
+                doSearch={doSearch}
+                setSearchQuery={setSearchQuery}
+                searchQuery={searchQuery}
+            />
             <main>
                 <Switch>
                     <Route exact path='/'>
