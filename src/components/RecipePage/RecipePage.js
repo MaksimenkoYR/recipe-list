@@ -1,15 +1,13 @@
 import React from 'react'
 import './RecipePage.scss'
+import TagsList from '../App/TagsList/TagsList'
 
-const RecipePage = () => {
+const RecipePage = ({allTags, changeTags}) => {
     const recipe = JSON.parse(sessionStorage.recipe)
 
     // find calories in a portion
     const calories = Math.round(recipe.calories / recipe.yield)
 
-    const recipeTags = recipe.dietLabels
-        .concat(recipe.healthLabels)
-        .map(item => <li className='tag'>{item}</li>)
         
     const recipeIngredients = recipe.ingredientLines.map(item => <li>{item}</li>)
 
@@ -28,7 +26,7 @@ const RecipePage = () => {
                     <div className='rating__dislike'>5</div>
                 </li>
             </ul>
-            <ul className='recipe-page__tags tags'>{recipeTags}</ul>
+            <TagsList allTags={allTags} changeTags={changeTags}/>
             <div className='recipe-page__wrapper'>
                 <img alt='' src={recipe.image} />
                 <ul className='recipe-page__ingridients'>{recipeIngredients}</ul>

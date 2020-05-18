@@ -84,10 +84,15 @@ const App = () => {
             <main>
                 <Switch>
                     <Route exact path='/'>
-                        <RecipesList recipes={recipes} setPath={setPath} />
+                        <RecipesList
+                            recipes={recipes}
+                            setPath={setPath}
+                            allTags={allTags}
+                            changeTags={changeTags}
+                        />
                     </Route>
                     <Route path={recipeLink}>
-                        <RecipePage />
+                        <RecipePage allTags={allTags} changeTags={changeTags} />
                     </Route>
                 </Switch>
             </main>

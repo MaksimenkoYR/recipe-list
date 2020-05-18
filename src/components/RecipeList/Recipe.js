@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import TagsList from '../App/TagsList/TagsList'
 
-const Recipe = ({recipe, setPath}) => {
+const Recipe = ({recipe, setPath, allTags, changeTags}) => {
     //// use this ratio to find calories and nutrients in portion
     // const ratioPortion = recipe.totalWeight/recipe.yield ;
 
@@ -38,11 +39,7 @@ const Recipe = ({recipe, setPath}) => {
                         ))}
                     </ul>
                     <h3>Tags:</h3>
-                    <ul className='recipe-item__tags-list'>
-                        {recipeFeatures.map(item => (
-                            <li key={recipe.label + item}>{item}</li>
-                        ))}
-                    </ul>
+                    <TagsList allTags={allTags} changeTags={changeTags}/>
                 </div>
             </Link>
         </li>
