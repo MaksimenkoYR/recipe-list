@@ -17,7 +17,7 @@ const App = () => {
 
     useEffect(() => {
         getRecipes()
-    }, [tags])
+    }, [])
 
     const getRecipes = async () => {
         const response = await fetch(

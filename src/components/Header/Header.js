@@ -11,7 +11,6 @@ const Header = (props) => {
                 <SearchForm
                     {...props}
                 />
-                <TagsList allTags={props.allTags} changeTags={props.changeTags}></TagsList>
             </header>
         </div>
 
