@@ -1,6 +1,6 @@
 import React from "react"
 import Recipe from "./Recipe"
-import "./RecipeList.css"
+import "./RecipeList.scss"
 
 const RecipesList = ({recipes, setPath, allTags, changeTags}) => {
     return(

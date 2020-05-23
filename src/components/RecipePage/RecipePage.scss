@@ -4,6 +4,7 @@
 
     padding: 4vw 5vw;
 
+
     h2{
         margin: 0;
         font-size: 3rem;
@@ -55,22 +56,11 @@
     }
 }
 
-.tags{
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    width: 50%;
-    flex-wrap: wrap;
-}
-
-.tag{
-    margin-right: 10px;
-    border-radius: 10px;
-     background-color: #aaa;
-}
 
 .recipe-page__wrapper{
+
+    box-shadow: 0 0 30px -10px #000;
+
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;

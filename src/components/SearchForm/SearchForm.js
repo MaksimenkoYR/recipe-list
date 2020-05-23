@@ -10,9 +10,12 @@ const SearchForm = ({doSearch, setSearchQuery, ...props}) => {
                     type='text'
                     onChange={e => {
                         setSearchQuery(e.currentTarget.value)
+                    
                     }}
+                    placeholder="Search"
                 />
             </label>
+            <p>Choose tags:</p>
             <TagsList allTags={props.allTags} changeTags={props.changeTags}></TagsList>
             <button className='search-form__button button' type='submit'>
                 Search
