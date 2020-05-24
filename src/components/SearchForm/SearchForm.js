@@ -33,7 +33,7 @@ const SearchForm = ({doSearch, setSearchQuery, ...props}) => {
 
                 />
             </label>
-            <div style={hide}>
+            <div  className="hide-container" style={hide}>
                 <p>Search by tag</p>
                 <TagsList allTags={props.allTags} changeTags={props.changeTags}></TagsList>
                 <button className='search-form__button button' type='submit'>
