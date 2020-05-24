@@ -10,6 +10,7 @@
     box-shadow: 0 0 10px -5px;
 
     border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   
 }
 
@@ -48,17 +49,16 @@
 }
 
 .search-form__search-input{
-    position: ralative;
     margin: 0;
     padding-left: 30px;
-
+    
     display: block;
-
+    
     width: 100%;
     height: 30px;
-
+    
     color: #a1a1a1;
-
+    
     border: 1px solid #a1a1a1;
     border-radius: 5px;
 }
