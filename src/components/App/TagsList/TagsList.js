@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React  from 'react'
 import TagItem from './TagItem'
+import "./tagList.scss"
 
 const TagsList = ({allTags, changeTags}) => {
     const tags = allTags.map(item => <TagItem item={item} changeTags={changeTags} />)

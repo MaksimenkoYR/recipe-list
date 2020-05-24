@@ -1,0 +1,25 @@
+.tags-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-bottom: 20px;
+
+}
+
+.tag-item{
+    flex-grow: 1;
+    background-color: #F7DE64 ;
+    border-radius: 20px;
+    margin: 2px;
+    padding:2px 8px;
+    color: #000;
+    text-align: center;
+}
+
+.tag-item--selected{
+    box-shadow: none;
+    filter: brightness(.7);
+}

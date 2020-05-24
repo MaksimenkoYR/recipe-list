@@ -5,9 +5,9 @@
 
 }
 
-@media( min-aspect-ratio: 1/1){
+@media( min-aspect-ratio: 10/9) and (min-width: 768px){
         .app{
              display: grid;
-             grid-template-columns: 20vw 1fr;   
+             grid-template-columns:  fit-content(300px) 1fr;   
         }
 }

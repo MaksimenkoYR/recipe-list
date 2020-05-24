@@ -15,7 +15,7 @@ const SearchForm = ({doSearch, setSearchQuery, ...props}) => {
                     placeholder="Search"
                 />
             </label>
-            <p>Choose tags:</p>
+            <p>Search by tag</p>
             <TagsList allTags={props.allTags} changeTags={props.changeTags}></TagsList>
             <button className='search-form__button button' type='submit'>
                 Search
